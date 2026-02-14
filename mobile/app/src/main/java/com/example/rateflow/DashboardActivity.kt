@@ -14,5 +14,12 @@ class DashboardActivity : AppCompatActivity() {
         // Connect XML to this Activity
         setContentView(R.layout.dashboard_page)
 
+        val userAvatar = findViewById<TextView>(R.id.userAvatar)
+
+        userAvatar.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
