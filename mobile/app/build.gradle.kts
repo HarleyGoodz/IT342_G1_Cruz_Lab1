@@ -55,6 +55,16 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+// OkHttp
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+// For JavaNetCookieJar
+    implementation("com.squareup.okhttp3:okhttp-urlconnection:4.12.0:")
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
