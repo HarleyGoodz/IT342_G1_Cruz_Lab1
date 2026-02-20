@@ -46,15 +46,6 @@ function Login() {
         <h2>Welcome!</h2>
         <p className="subtitle">Sign in to your account</p>
 
-        <div className="input-group">
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-
         <input
           type="email"
           placeholder="Email"

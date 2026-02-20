@@ -84,14 +84,13 @@
                         app:boxCornerRadiusBottomStart="12dp"
                         app:boxCornerRadiusBottomEnd="12dp"
                         app:hintTextColor="#38bdf8"
-                        app:startIconDrawable="@android:drawable/ic_menu_myplaces"
                         app:startIconTint="#64748b">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editTextUsername"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Username"
+                            android:hint="Email"
                             android:inputType="textPersonName"
                             android:textColor="#e5e7eb"
                             android:textColorHint="#475569"
@@ -114,7 +113,6 @@
                         app:boxCornerRadiusBottomStart="12dp"
                         app:boxCornerRadiusBottomEnd="12dp"
                         app:hintTextColor="#38bdf8"
-                        app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
                         app:startIconTint="#64748b"
                         app:endIconMode="password_toggle"
                         app:endIconTint="#64748b">
