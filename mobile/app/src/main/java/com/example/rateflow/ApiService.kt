@@ -7,8 +7,6 @@ import retrofit2.http.GET
 
 data class User(
     val username: String,
-    val fName: String,
-    val lName: String,
     val email: String,
     val password: String
 )

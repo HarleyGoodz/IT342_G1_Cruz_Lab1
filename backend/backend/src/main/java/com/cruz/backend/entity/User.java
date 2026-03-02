@@ -16,8 +16,6 @@ public class User {
 
 
     private String username;
-    private String fName;
-    private String lName;
     private String email;
     private String password;
  
@@ -25,11 +23,9 @@ public class User {
         super();
     }
  
-    public User(Integer id, String username, String fName, String lName, String email, String password) {
+    public User(Integer id, String username, String email, String password) {
         this.id = id;
         this.username = username;
-        this.fName = fName;
-        this.lName = lName;
         this.email = email;
         this.password = password;
     }
@@ -48,22 +44,6 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
-    }
- 
-    public String getfName() {
-        return fName;
-    }
- 
-    public void setfName(String fName) {
-        this.fName = fName;
-    }
- 
-    public String getlName() {
-        return lName;
-    }
- 
-    public void setlName(String lName) {
-        this.lName = lName;
     }
  
     public String getEmail() {

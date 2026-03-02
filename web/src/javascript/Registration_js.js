@@ -67,28 +67,6 @@ function Registration() {
         <div className="input-group">
           <input
             type="text"
-            name="firstName"
-            placeholder="First Name"
-            value={formData.firstName}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="input-group">
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            value={formData.lastName}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="input-group">
-          <input
-            type="text"
             name="username"
             placeholder="Username"
             value={formData.username}
