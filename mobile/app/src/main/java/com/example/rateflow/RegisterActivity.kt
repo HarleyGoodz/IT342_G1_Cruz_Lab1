@@ -22,12 +22,6 @@ class RegisterActivity : AppCompatActivity() {
         val btnRegister = findViewById<MaterialButton>(R.id.btnRegister)
         val txtLogin = findViewById<TextView>(R.id.txtLogin)
 
-        val editTextFName = findViewById<TextInputEditText>(R.id.editTextFName)
-        val editTextLName = findViewById<TextInputEditText>(R.id.editTextLName)
-
-        val fNameInputLayout = findViewById<TextInputLayout>(R.id.fNameInputLayout)
-        val lNameInputLayout = findViewById<TextInputLayout>(R.id.lNameInputLayout)
-
 
         val editTextEmail = findViewById<TextInputEditText>(R.id.editTextEmail)
         val editTextUsername = findViewById<TextInputEditText>(R.id.editTextUsername)
@@ -45,28 +39,17 @@ class RegisterActivity : AppCompatActivity() {
 
         btnRegister.setOnClickListener {
 
-            val fName = editTextFName.text.toString().trim()
-            val lName = editTextLName.text.toString().trim()
             val email = editTextEmail.text.toString().trim()
             val username = editTextUsername.text.toString().trim()
             val password = editTextPassword.text.toString().trim()
             val confirmPassword = editTextConfirmPassword.text.toString().trim()
 
             emailInputLayout.error = null
-            fNameInputLayout.error = null
-            lNameInputLayout.error = null
             usernameInputLayout.error = null
             passwordInputLayout.error = null
             confirmPasswordInputLayout.error = null
 
             when {
-
-                fName.length < 2 -> {
-                    fNameInputLayout.error = "First name must be at least 2 characters"
-                }
-                lName.length < 2 -> {
-                    lNameInputLayout.error = "Last name must be at least 2 characters"
-                }
 
                 !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
                     emailInputLayout.error = "Invalid email address"
@@ -84,8 +67,6 @@ class RegisterActivity : AppCompatActivity() {
 
                     val user = User(
                         username = username,
-                        fName = fName,
-                        lName = lName,
                         email = email,
                         password = password
                     )
