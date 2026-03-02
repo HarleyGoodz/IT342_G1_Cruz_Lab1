@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.cruz.backend.entity.User;
 import com.cruz.backend.repository.UserRepository;
+import com.cruz.backend.entity.Role;
 
 @Service
 public class UserService {
@@ -25,13 +26,15 @@ public class UserService {
  
     // CREATE
     public User createUser(User user) {
-        // NOTE: currently saving raw password (plaintext).
-        // For production, hash with BCrypt and store the hash instead.
-        String hashedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(hashedPassword);
 
-        return urepo.save(user);
-    }
+    String hashedPassword = passwordEncoder.encode(user.getPassword());
+    user.setPassword(hashedPassword);
+
+    // Force role to USER when registering
+    user.setRole(Role.USER);
+
+    return urepo.save(user);
+}
  
     // FIND BY EMAIL OR FULLNAME (LOGIN)
     public Optional<User> findByEmailOrUsername(String value) {
