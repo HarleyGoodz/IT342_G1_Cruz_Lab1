@@ -5,7 +5,7 @@ import "../css/dashboard_css.css";
 function Dashboard() {
   const navigate = useNavigate();
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [activeTab, setActiveTab] = useState("overview");
+  const [activeTab, setActiveTab] = useState("Services");
   const [user, setUser] = useState(null);
 
   // 🔐 Check session when dashboard loads
@@ -75,39 +75,17 @@ function Dashboard() {
 
         <nav className="sidebar-nav">
           <button 
-            className={`nav-item ${activeTab === "overview" ? "active" : ""}`}
-            onClick={() => setActiveTab("overview")}
+            className={`nav-item ${activeTab === "Services" ? "active" : ""}`}
+            onClick={() => setActiveTab("Services")}
           >
-            <span className="nav-icon">📊</span>
-            {!sidebarCollapsed && <span className="nav-label">Overview</span>}
+            {!sidebarCollapsed && <span className="nav-label">Services</span>}
           </button>
           <button 
-            className={`nav-item ${activeTab === "analytics" ? "active" : ""}`}
-            onClick={() => setActiveTab("analytics")}
+            className={`nav-item ${activeTab === "My Ratings" ? "active" : ""}`}
+            onClick={() => setActiveTab("My Ratings")}
           >
-            <span className="nav-icon">📈</span>
-            {!sidebarCollapsed && <span className="nav-label">Analytics</span>}
-          </button>
-          <button 
-            className={`nav-item ${activeTab === "projects" ? "active" : ""}`}
-            onClick={() => setActiveTab("projects")}
-          >
-            <span className="nav-icon">📁</span>
-            {!sidebarCollapsed && <span className="nav-label">Projects</span>}
-          </button>
-          <button 
-            className={`nav-item ${activeTab === "tasks" ? "active" : ""}`}
-            onClick={() => setActiveTab("tasks")}
-          >
-            <span className="nav-icon">✓</span>
-            {!sidebarCollapsed && <span className="nav-label">Tasks</span>}
-          </button>
-          <button 
-            className={`nav-item ${activeTab === "settings" ? "active" : ""}`}
-            onClick={() => setActiveTab("settings")}
-          >
-            <span className="nav-icon">⚙️</span>
-            {!sidebarCollapsed && <span className="nav-label">Settings</span>}
+  
+            {!sidebarCollapsed && <span className="nav-label">My Ratings</span>}
           </button>
         </nav>
 
@@ -136,9 +114,12 @@ function Dashboard() {
                 <span className="notification-badge">3</span>
                 🔔
               </button>
-              <div className="user-avatar">
-                {user ? user.username.charAt(0).toUpperCase() : "U"}
-              </div>
+              <div className="user-avatar"
+                onClick={() => navigate("/profile")}
+                style={{ cursor: "pointer" }}
+                >
+                  {user ? user.username.charAt(0).toUpperCase() : "U"}
+                </div>
             </div>
           </div>
         </header>
@@ -161,7 +142,7 @@ function Dashboard() {
         <section className="content-grid">
           <div className="chart-card">
             <div className="card-header">
-              <h3 className="card-title">Revenue Overview</h3>
+              <h3 className="card-title">Revenue Services</h3>
               <select className="time-selector">
                 <option>Last 7 days</option>
                 <option>Last 30 days</option>
