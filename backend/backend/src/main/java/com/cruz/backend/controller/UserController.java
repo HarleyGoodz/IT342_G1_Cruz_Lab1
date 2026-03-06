@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
- 
+
+import com.cruz.backend.entity.Role;
 import com.cruz.backend.entity.User;
 import com.cruz.backend.service.UserService;
  
@@ -26,16 +27,20 @@ public class UserController {
     private UserService userv;
  
     @PostMapping("/register")
-    public ResponseEntity<?> addUser(@RequestBody User newUser) {
-        try {
-            User saved = userv.createUser(newUser);
-            // hide password before returning
-            saved.setPassword(null);
-            return ResponseEntity.ok(saved);
-        } catch (Exception e) {
-            return ResponseEntity.status(400).body("Error creating user: " + e.getMessage());
-        }
+public ResponseEntity<?> addUser(@RequestBody User newUser) {
+    try {
+
+        newUser.setRole(Role.USER);   // ⭐ ADD THIS
+
+        User saved = userv.createUser(newUser);
+
+        saved.setPassword(null);
+        return ResponseEntity.ok(saved);
+
+    } catch (Exception e) {
+        return ResponseEntity.status(400).body("Error creating user: " + e.getMessage());
     }
+}
  
     // LOGIN - sets HttpSession attribute and returns user (without password)
     @PostMapping("/login")
